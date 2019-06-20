@@ -19,13 +19,13 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/cloudfoundry/libcfbuildpack/buildpack"
+	"github.com/cloudfoundry/libhkbuildpack/buildpack"
 	"log"
 	"os"
 	"os/user"
 	"path/filepath"
 
-	"github.com/cloudfoundry/libcfbuildpack/packager/cnbpackager"
+	"github.com/cloudfoundry/libhkbuildpack/packager/cnbpackager"
 )
 
 func main() {

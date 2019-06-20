@@ -33,10 +33,10 @@ import (
 	buildpackBp "github.com/buildpack/libbuildpack/buildpack"
 	layersBp "github.com/buildpack/libbuildpack/layers"
 	loggerBp "github.com/buildpack/libbuildpack/logger"
-	"github.com/cloudfoundry/libcfbuildpack/buildpack"
-	"github.com/cloudfoundry/libcfbuildpack/helper"
-	"github.com/cloudfoundry/libcfbuildpack/layers"
-	"github.com/cloudfoundry/libcfbuildpack/logger"
+	"github.com/cloudfoundry/libhkbuildpack/buildpack"
+	"github.com/cloudfoundry/libhkbuildpack/helper"
+	"github.com/cloudfoundry/libhkbuildpack/layers"
+	"github.com/cloudfoundry/libhkbuildpack/logger"
 )
 
 const (
