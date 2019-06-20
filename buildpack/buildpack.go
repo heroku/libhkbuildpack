@@ -23,7 +23,7 @@ import (
 	"github.com/buildpack/libbuildpack/stack"
 
 	"github.com/buildpack/libbuildpack/buildpack"
-	"github.com/cloudfoundry/libhkbuildpack/logger"
+	"github.com/heroku/libhkbuildpack/logger"
 )
 
 const (

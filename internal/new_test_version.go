@@ -20,7 +20,7 @@ import (
 	"testing"
 
 	"github.com/Masterminds/semver"
-	"github.com/cloudfoundry/libhkbuildpack/buildpack"
+	"github.com/heroku/libhkbuildpack/buildpack"
 )
 
 func NewTestVersion(t *testing.T, version string) buildpack.Version {

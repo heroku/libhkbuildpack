@@ -18,10 +18,10 @@ package detect
 
 import (
 	"github.com/buildpack/libbuildpack/detect"
-	"github.com/cloudfoundry/libhkbuildpack/buildpack"
-	"github.com/cloudfoundry/libhkbuildpack/logger"
-	"github.com/cloudfoundry/libhkbuildpack/runner"
-	"github.com/cloudfoundry/libhkbuildpack/services"
+	"github.com/heroku/libhkbuildpack/buildpack"
+	"github.com/heroku/libhkbuildpack/logger"
+	"github.com/heroku/libhkbuildpack/runner"
+	"github.com/heroku/libhkbuildpack/services"
 )
 
 // Detect is an extension to libbuildpack.Detect that allows additional functionality to be added.

@@ -22,8 +22,8 @@ import (
 
 	"github.com/buildpack/libbuildpack/buildplan"
 	"github.com/buildpack/libbuildpack/layers"
-	"github.com/cloudfoundry/libhkbuildpack/buildpack"
-	"github.com/cloudfoundry/libhkbuildpack/logger"
+	"github.com/heroku/libhkbuildpack/buildpack"
+	"github.com/heroku/libhkbuildpack/logger"
 	"github.com/fatih/color"
 )
 

@@ -22,7 +22,7 @@ import (
 	"reflect"
 
 	"github.com/BurntSushi/toml"
-	"github.com/cloudfoundry/libhkbuildpack/layers"
+	"github.com/heroku/libhkbuildpack/layers"
 	"github.com/onsi/gomega/types"
 )
 

@@ -1,4 +1,4 @@
-module github.com/cloudfoundry/libhkbuildpack
+module github.com/heroku/libhkbuildpack
 
 require (
 	github.com/BurntSushi/toml v0.3.1

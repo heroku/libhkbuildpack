@@ -19,13 +19,13 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/cloudfoundry/libhkbuildpack/buildpack"
+	"github.com/heroku/libhkbuildpack/buildpack"
 	"log"
 	"os"
 	"os/user"
 	"path/filepath"
 
-	"github.com/cloudfoundry/libhkbuildpack/packager/cnbpackager"
+	"github.com/heroku/libhkbuildpack/packager/cnbpackager"
 )
 
 func main() {

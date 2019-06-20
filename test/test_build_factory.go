@@ -28,13 +28,13 @@ import (
 	bpLayers "github.com/buildpack/libbuildpack/layers"
 	bpServices "github.com/buildpack/libbuildpack/services"
 	"github.com/buildpack/libbuildpack/stack"
-	"github.com/cloudfoundry/libhkbuildpack/build"
-	"github.com/cloudfoundry/libhkbuildpack/buildpack"
-	"github.com/cloudfoundry/libhkbuildpack/helper"
-	"github.com/cloudfoundry/libhkbuildpack/internal"
-	"github.com/cloudfoundry/libhkbuildpack/layers"
-	"github.com/cloudfoundry/libhkbuildpack/logger"
-	"github.com/cloudfoundry/libhkbuildpack/services"
+	"github.com/heroku/libhkbuildpack/build"
+	"github.com/heroku/libhkbuildpack/buildpack"
+	"github.com/heroku/libhkbuildpack/helper"
+	"github.com/heroku/libhkbuildpack/internal"
+	"github.com/heroku/libhkbuildpack/layers"
+	"github.com/heroku/libhkbuildpack/logger"
+	"github.com/heroku/libhkbuildpack/services"
 )
 
 // BuildFactory is a factory for creating a test Build.

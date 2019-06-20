@@ -21,8 +21,8 @@ import (
 	"path/filepath"
 
 	"github.com/buildpack/libbuildpack/buildplan"
-	"github.com/cloudfoundry/libhkbuildpack/buildpack"
-	"github.com/cloudfoundry/libhkbuildpack/logger"
+	"github.com/heroku/libhkbuildpack/buildpack"
+	"github.com/heroku/libhkbuildpack/logger"
 )
 
 // HelperLayer is an extension to Layer that is unique to a buildpack provided helper.

@@ -22,7 +22,7 @@ import (
 	"testing"
 
 	bp "github.com/buildpack/libbuildpack/logger"
-	"github.com/cloudfoundry/libhkbuildpack/logger"
+	"github.com/heroku/libhkbuildpack/logger"
 	"github.com/fatih/color"
 	. "github.com/onsi/gomega"
 	"github.com/sclevine/spec"

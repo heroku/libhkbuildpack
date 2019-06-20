@@ -24,8 +24,8 @@ import (
 	"github.com/buildpack/libbuildpack/buildplan"
 	bp "github.com/buildpack/libbuildpack/services"
 	"github.com/buildpack/libbuildpack/stack"
-	"github.com/cloudfoundry/libhkbuildpack/detect"
-	"github.com/cloudfoundry/libhkbuildpack/services"
+	"github.com/heroku/libhkbuildpack/detect"
+	"github.com/heroku/libhkbuildpack/services"
 )
 
 // DetectFactory is a factory for creating a test Detect.
