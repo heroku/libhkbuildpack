@@ -33,10 +33,10 @@ import (
 	buildpackBp "github.com/buildpack/libbuildpack/buildpack"
 	layersBp "github.com/buildpack/libbuildpack/layers"
 	loggerBp "github.com/buildpack/libbuildpack/logger"
-	"github.com/cloudfoundry/libhkbuildpack/buildpack"
-	"github.com/cloudfoundry/libhkbuildpack/helper"
-	"github.com/cloudfoundry/libhkbuildpack/layers"
-	"github.com/cloudfoundry/libhkbuildpack/logger"
+	"github.com/heroku/libhkbuildpack/buildpack"
+	"github.com/heroku/libhkbuildpack/helper"
+	"github.com/heroku/libhkbuildpack/layers"
+	"github.com/heroku/libhkbuildpack/logger"
 )
 
 const (

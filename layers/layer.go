@@ -20,7 +20,7 @@ import (
 	"reflect"
 
 	"github.com/buildpack/libbuildpack/layers"
-	"github.com/cloudfoundry/libhkbuildpack/logger"
+	"github.com/heroku/libhkbuildpack/logger"
 	"github.com/fatih/color"
 )
 

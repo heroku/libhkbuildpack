@@ -20,8 +20,8 @@ import (
 	"path/filepath"
 
 	"github.com/buildpack/libbuildpack/application"
-	"github.com/cloudfoundry/libhkbuildpack/helper"
-	"github.com/cloudfoundry/libhkbuildpack/logger"
+	"github.com/heroku/libhkbuildpack/helper"
+	"github.com/heroku/libhkbuildpack/logger"
 	"github.com/magiconair/properties"
 )
 

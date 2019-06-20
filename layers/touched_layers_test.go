@@ -20,9 +20,9 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/cloudfoundry/libhkbuildpack/layers"
-	"github.com/cloudfoundry/libhkbuildpack/logger"
-	"github.com/cloudfoundry/libhkbuildpack/test"
+	"github.com/heroku/libhkbuildpack/layers"
+	"github.com/heroku/libhkbuildpack/logger"
+	"github.com/heroku/libhkbuildpack/test"
 	. "github.com/onsi/gomega"
 	"github.com/sclevine/spec"
 	"github.com/sclevine/spec/report"

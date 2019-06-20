@@ -25,9 +25,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/cloudfoundry/libhkbuildpack/buildpack"
-	"github.com/cloudfoundry/libhkbuildpack/helper"
-	"github.com/cloudfoundry/libhkbuildpack/logger"
+	"github.com/heroku/libhkbuildpack/buildpack"
+	"github.com/heroku/libhkbuildpack/helper"
+	"github.com/heroku/libhkbuildpack/logger"
 	"github.com/fatih/color"
 )
 

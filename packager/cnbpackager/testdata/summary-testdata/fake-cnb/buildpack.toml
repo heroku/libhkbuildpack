@@ -1,5 +1,5 @@
 [buildpack]
-id = "org.cloudfoundry.fake"
+id = "org.heroku.fake"
 name = "Fake Buildpack"
 version = "0.0.1"
 

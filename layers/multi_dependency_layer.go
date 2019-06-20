@@ -22,8 +22,8 @@ import (
 	"strings"
 
 	"github.com/buildpack/libbuildpack/buildplan"
-	"github.com/cloudfoundry/libhkbuildpack/buildpack"
-	"github.com/cloudfoundry/libhkbuildpack/logger"
+	"github.com/heroku/libhkbuildpack/buildpack"
+	"github.com/heroku/libhkbuildpack/logger"
 )
 
 type MultiDependencyLayer struct {

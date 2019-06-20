@@ -21,8 +21,8 @@ import (
 
 	bp "github.com/buildpack/libbuildpack/buildpack"
 	"github.com/buildpack/libbuildpack/stack"
-	"github.com/cloudfoundry/libhkbuildpack/buildpack"
-	"github.com/cloudfoundry/libhkbuildpack/internal"
+	"github.com/heroku/libhkbuildpack/buildpack"
+	"github.com/heroku/libhkbuildpack/internal"
 	. "github.com/onsi/gomega"
 	"github.com/sclevine/spec"
 	"github.com/sclevine/spec/report"
