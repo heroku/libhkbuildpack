@@ -19,7 +19,7 @@ package buildpack_test
 import (
 	"testing"
 
-	"github.com/cloudfoundry/libcfbuildpack/buildpack"
+	"github.com/cloudfoundry/libhkbuildpack/buildpack"
 	. "github.com/onsi/gomega"
 	"github.com/sclevine/spec"
 	"github.com/sclevine/spec/report"

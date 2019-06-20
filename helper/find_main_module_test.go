@@ -21,8 +21,8 @@ import (
 	"testing"
 
 	"github.com/buildpack/libbuildpack/application"
-	"github.com/cloudfoundry/libcfbuildpack/helper"
-	"github.com/cloudfoundry/libcfbuildpack/test"
+	"github.com/cloudfoundry/libhkbuildpack/helper"
+	"github.com/cloudfoundry/libhkbuildpack/test"
 	. "github.com/onsi/gomega"
 	"github.com/sclevine/spec"
 )

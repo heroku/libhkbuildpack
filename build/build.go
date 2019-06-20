@@ -20,11 +20,11 @@ import (
 	"github.com/buildpack/libbuildpack/build"
 	"github.com/buildpack/libbuildpack/buildplan"
 	bp "github.com/buildpack/libbuildpack/layers"
-	"github.com/cloudfoundry/libcfbuildpack/buildpack"
-	"github.com/cloudfoundry/libcfbuildpack/layers"
-	"github.com/cloudfoundry/libcfbuildpack/logger"
-	"github.com/cloudfoundry/libcfbuildpack/runner"
-	"github.com/cloudfoundry/libcfbuildpack/services"
+	"github.com/cloudfoundry/libhkbuildpack/buildpack"
+	"github.com/cloudfoundry/libhkbuildpack/layers"
+	"github.com/cloudfoundry/libhkbuildpack/logger"
+	"github.com/cloudfoundry/libhkbuildpack/runner"
+	"github.com/cloudfoundry/libhkbuildpack/services"
 )
 
 // Build is an extension to libbuildpack.Build that allows additional functionality to be added.

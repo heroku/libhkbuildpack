@@ -20,7 +20,7 @@ import (
 	"testing"
 
 	bp "github.com/buildpack/libbuildpack/services"
-	"github.com/cloudfoundry/libcfbuildpack/services"
+	"github.com/cloudfoundry/libhkbuildpack/services"
 	. "github.com/onsi/gomega"
 	"github.com/sclevine/spec"
 )

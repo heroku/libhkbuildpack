@@ -22,9 +22,9 @@ import (
 	"testing"
 
 	"github.com/buildpack/libbuildpack/buildplan"
-	"github.com/cloudfoundry/libcfbuildpack/detect"
-	"github.com/cloudfoundry/libcfbuildpack/internal"
-	"github.com/cloudfoundry/libcfbuildpack/test"
+	"github.com/cloudfoundry/libhkbuildpack/detect"
+	"github.com/cloudfoundry/libhkbuildpack/internal"
+	"github.com/cloudfoundry/libhkbuildpack/test"
 	. "github.com/onsi/gomega"
 	"github.com/sclevine/spec"
 	"github.com/sclevine/spec/report"

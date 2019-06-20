@@ -23,9 +23,9 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/cloudfoundry/libcfbuildpack/buildpack"
+	"github.com/cloudfoundry/libhkbuildpack/buildpack"
 
-	"github.com/cloudfoundry/libcfbuildpack/packager/cnbpackager"
+	"github.com/cloudfoundry/libhkbuildpack/packager/cnbpackager"
 
 	. "github.com/onsi/gomega"
 	"github.com/sclevine/spec"
