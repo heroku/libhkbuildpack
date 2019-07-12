@@ -40,7 +40,7 @@ func TestTouchedLayers(t *testing.T) {
 
 		it.Before(func() {
 			root = test.ScratchDir(t, "touched-layers")
-			touched = layers.NewTouchedLayers(root, logger.Logger{})
+			touched = layers.NewTouchedLayers(root, logger.New(nil))
 		})
 
 		it("does not remove touched layers", func() {

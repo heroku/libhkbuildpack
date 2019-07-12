@@ -21,15 +21,14 @@ import (
 
 	"github.com/buildpack/libbuildpack/layers"
 	"github.com/heroku/libhkbuildpack/logger"
-	"github.com/fatih/color"
 )
 
 // LaunchLayer is an extension to libbuildpack.LaunchLayer that allows additional functionality to be added
 type Layer struct {
 	layers.Layer
 
-	// Logger is used to write debug and info to the console.
-	Logger logger.Logger
+	// Log is used to write debug and info to the console.
+	Logger *logger.Log
 
 	touchedLayers TouchedLayers
 }
@@ -119,12 +118,12 @@ func (l Layer) Contribute(expected logger.Identifiable, contributor LayerContrib
 
 	if matches {
 		l.Logger.FirstLine("%s: %s cached layer",
-			l.Logger.PrettyIdentity(expected), color.GreenString("Reusing"))
+			l.Logger.PrettyIdentity(expected), "Reusing")
 		return l.WriteMetadata(expected, flags...)
 	}
 
 	l.Logger.FirstLine("%s: %s to layer",
-		l.Logger.PrettyIdentity(expected), color.YellowString("Contributing"))
+		l.Logger.PrettyIdentity(expected), "Contributing")
 
 	if err := contributor(l); err != nil {
 		l.Logger.Debug("Error during contribution")

@@ -29,7 +29,7 @@ type Manifest struct {
 	*properties.Properties
 }
 
-func NewManifest(application application.Application, logger logger.Logger) (Manifest, error) {
+func NewManifest(application application.Application, logger *logger.Log) (Manifest, error) {
 	f := filepath.Join(application.Root, "META-INF", "MANIFEST.MF")
 
 	if exists, err := helper.FileExists(f); err != nil {

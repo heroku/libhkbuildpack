@@ -25,6 +25,7 @@ import (
 	bp "github.com/buildpack/libbuildpack/services"
 	"github.com/buildpack/libbuildpack/stack"
 	"github.com/heroku/libhkbuildpack/detect"
+	"github.com/heroku/libhkbuildpack/logger"
 	"github.com/heroku/libhkbuildpack/services"
 )
 
@@ -92,6 +93,7 @@ func NewDetectFactory(t *testing.T) *DetectFactory {
 	f.Detect.Stack = stack.Stack("test-stack")
 
 	f.Home = filepath.Join(root, "home")
+	f.Detect.Logger = logger.New(nil)
 
 	return &f
 }

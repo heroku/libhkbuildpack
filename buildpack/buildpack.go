@@ -39,11 +39,11 @@ type Buildpack struct {
 	// CacheRoot is the path to the root directory for the buildpack's dependency cache.
 	CacheRoot string
 
-	logger logger.Logger
+	logger *logger.Log
 }
 
 // NewBuildpack creates a new instance of Buildpack from a specified buildpack.Buildpack.
-func NewBuildpack(buildpack buildpack.Buildpack, logger logger.Logger) Buildpack {
+func NewBuildpack(buildpack buildpack.Buildpack, logger *logger.Log) Buildpack {
 	return Buildpack{buildpack, filepath.Join(buildpack.Root, CacheRoot), logger}
 }
 
@@ -133,6 +133,6 @@ func (b Buildpack) RuntimeDependency(id, version string, stack stack.Stack) (Dep
 
 // String makes Buildpack satisfy the Stringer interface.
 func (b Buildpack) String() string {
-	return fmt.Sprintf("Buildpack{ Buildpack: %s, CacheRoot: %s, logger: %s }",
-		b.Buildpack, b.CacheRoot, b.logger)
+	return fmt.Sprintf("Buildpack{ Buildpack: %s, CacheRoot: %s }",
+		b.Buildpack, b.CacheRoot)
 }

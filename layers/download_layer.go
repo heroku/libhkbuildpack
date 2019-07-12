@@ -28,7 +28,6 @@ import (
 	"github.com/heroku/libhkbuildpack/buildpack"
 	"github.com/heroku/libhkbuildpack/helper"
 	"github.com/heroku/libhkbuildpack/logger"
-	"github.com/fatih/color"
 )
 
 // DownloadLayer is an extension to Layer that is unique to a dependency download.
@@ -38,7 +37,7 @@ type DownloadLayer struct {
 	cacheLayer Layer
 	dependency buildpack.Dependency
 	info       buildpack.Info
-	logger     logger.Logger
+	logger     *logger.Log
 }
 
 // Artifact returns the path to an artifact cached in the layer.  If the artifact has already been downloaded, the cache
@@ -54,7 +53,7 @@ func (l DownloadLayer) Artifact() (string, error) {
 
 	artifact := filepath.Join(l.cacheLayer.Root, filepath.Base(l.dependency.URI))
 	if matches {
-		l.logger.SubsequentLine("%s cached download from buildpack", color.GreenString("Reusing"))
+		l.logger.SubsequentLine("%s cached download from buildpack", "Reusing")
 		return artifact, nil
 	}
 
@@ -65,7 +64,7 @@ func (l DownloadLayer) Artifact() (string, error) {
 
 	artifact = filepath.Join(l.Root, filepath.Base(l.dependency.URI))
 	if matches {
-		l.logger.SubsequentLine("%s cached download from previous build", color.GreenString("Reusing"))
+		l.logger.SubsequentLine("%s cached download from previous build", "Reusing")
 		return artifact, nil
 	}
 
@@ -73,7 +72,7 @@ func (l DownloadLayer) Artifact() (string, error) {
 		return "", err
 	}
 
-	l.logger.SubsequentLine("%s from %s", color.YellowString("Downloading"), l.dependency.URI)
+	l.logger.SubsequentLine("%s from %s", "Downloading", l.dependency.URI)
 	if err := l.download(artifact); err != nil {
 		return "", err
 	}

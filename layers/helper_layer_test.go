@@ -60,7 +60,7 @@ func TestHelperLayer(t *testing.T) {
 
 			id = "test-id"
 
-			ls = layers.NewLayers(layersBp.Layers{Root: root}, layersBp.Layers{}, bp, logger.Logger{})
+			ls = layers.NewLayers(layersBp.Layers{Root: root}, layersBp.Layers{}, bp, &logger.Log{})
 			layer = ls.HelperLayer(id, "Test Name")
 		})
 

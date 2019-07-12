@@ -62,7 +62,7 @@ func TestMultiDependencyLayer(t *testing.T) {
 					URI:     "https://test.com/test-path",
 				})
 
-			ls = layers.NewLayers(layersBp.Layers{Root: root}, layersBp.Layers{}, buildpack.Buildpack{}, logger.Logger{})
+			ls = layers.NewLayers(layersBp.Layers{Root: root}, layersBp.Layers{}, buildpack.Buildpack{}, logger.New(nil))
 			layer = ls.MultiDependencyLayer("test-name", dependencies)
 		})
 

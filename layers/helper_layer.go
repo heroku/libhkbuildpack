@@ -35,7 +35,7 @@ type HelperLayer struct {
 	buildpack            buildpack.Buildpack
 	dependencyBuildPlans buildplan.BuildPlan
 	name                 string
-	logger               logger.Logger
+	logger               *logger.Log
 }
 
 // HelperLayerContributor defines a callback function that is called when a buildpack provided helper needs to be

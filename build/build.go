@@ -37,8 +37,8 @@ type Build struct {
 	// Layers represents the launch layers contributed by a buildpack.
 	Layers layers.Layers
 
-	// Logger is used to write debug and info to the console.
-	Logger logger.Logger
+	// Log is used to write debug and info to the console.
+	Logger *logger.Log
 
 	// Runner is used to run commands outside of the process.
 	Runner runner.Runner
@@ -78,7 +78,7 @@ func DefaultBuild() (Build, error) {
 		return Build{}, err
 	}
 
-	logger := logger.Logger{Logger: b.Logger}
+	logger := logger.New(&b.Logger)
 	buildpack := buildpack.NewBuildpack(b.Buildpack, logger)
 	layers := layers.NewLayers(b.Layers, bp.NewLayers(buildpack.CacheRoot, b.Logger), buildpack, logger)
 	services := services.Services{Services: b.Services}
