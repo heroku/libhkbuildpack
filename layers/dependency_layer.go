@@ -34,7 +34,7 @@ type DependencyLayer struct {
 
 	dependencyBuildPlans buildplan.BuildPlan
 	downloadLayer        DownloadLayer
-	logger               logger.Logger
+	logger               *logger.Log
 }
 
 // ArtifactName returns the name portion of the download path for the dependency.

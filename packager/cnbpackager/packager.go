@@ -47,9 +47,11 @@ const (
 type Packager struct {
 	buildpack       buildpack.Buildpack
 	layers          layers.Layers
-	logger          logger.Logger
+	logger          *logger.Log
 	outputDirectory string
 }
+
+
 
 func New(bpDir, outputDir, cacheDir string) (Packager, error) {
 	l, err := loggerBp.DefaultLogger("")
@@ -61,7 +63,7 @@ func New(bpDir, outputDir, cacheDir string) (Packager, error) {
 		return Packager{}, err
 	}
 
-	log := logger.Logger{Logger: l}
+	log := logger.New(&l)
 	b := buildpack.NewBuildpack(specBP, log)
 
 	depCache, err := filepath.Abs(filepath.Join(cacheDir, buildpack.CacheRoot))

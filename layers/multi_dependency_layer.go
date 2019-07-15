@@ -34,7 +34,7 @@ type MultiDependencyLayer struct {
 
 	dependencyBuildPlans buildplan.BuildPlan
 	downloadLayers       []DownloadLayer
-	logger               logger.Logger
+	logger               *logger.Log
 }
 
 // MultiDependencyLayerContributor defines a callback function that is called when a dependency needs to be contributed.
@@ -71,7 +71,7 @@ func (l MultiDependencyLayer) Contribute(contributors map[string]MultiDependency
 
 		return nil
 	}, flags...); err != nil {
-		return err;
+		return err
 	}
 
 	l.contributeToBuildPlan()

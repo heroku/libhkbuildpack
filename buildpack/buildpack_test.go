@@ -23,6 +23,7 @@ import (
 	"github.com/buildpack/libbuildpack/stack"
 	"github.com/heroku/libhkbuildpack/buildpack"
 	"github.com/heroku/libhkbuildpack/internal"
+	"github.com/heroku/libhkbuildpack/logger"
 	. "github.com/onsi/gomega"
 	"github.com/sclevine/spec"
 	"github.com/sclevine/spec/report"
@@ -70,7 +71,7 @@ func TestBuildpack(t *testing.T) {
 	spec.Run(t, "Buildpack", func(t *testing.T, when spec.G, it spec.S) {
 		g := NewWithT(t)
 
-		when("Dependencies", func(){
+		when("Dependencies", func() {
 			it("returns dependencies", func() {
 				bp := bp.Buildpack{
 					Metadata: bp.Metadata{
@@ -106,11 +107,11 @@ func TestBuildpack(t *testing.T) {
 					},
 				}
 
-				g.Expect(buildpack.Buildpack{Buildpack: bp}.Dependencies()).To(Equal(expected))
+				g.Expect(buildpack.NewBuildpack(bp, logger.New(nil)).Dependencies()).To(Equal(expected))
 			})
 		})
 
-		when("IncludeFiles", func(){
+		when("IncludeFiles", func() {
 			it("returns include_files if it exists", func() {
 				b := bp.Buildpack{
 					Metadata: bp.Metadata{
@@ -127,7 +128,6 @@ func TestBuildpack(t *testing.T) {
 				g.Expect(buildpack.Buildpack{Buildpack: b}.IncludeFiles()).To(BeEmpty())
 			})
 		})
-
 
 		when("PrePackage", func() {
 			it("returns pre_package if it exists", func() {
@@ -150,7 +150,7 @@ func TestBuildpack(t *testing.T) {
 			})
 		})
 
-		when("DefaultVersion", func(){
+		when("DefaultVersion", func() {
 			it("returns a default dependency if it exists", func() {
 				id := "test-id-1"
 				version := "1.0"
@@ -203,11 +203,11 @@ func TestBuildpack(t *testing.T) {
 			})
 		})
 
-		when("RuntimeDependency", func(){
+		when("RuntimeDependency", func() {
 			var (
 				expectedDep buildpack.Dependency
-				id = "test-id-1"
-				stack = stack.Stack("test-stack-1a")
+				id          = "test-id-1"
+				stack       = stack.Stack("test-stack-1a")
 			)
 
 			it.Before(func() {
@@ -234,7 +234,7 @@ func TestBuildpack(t *testing.T) {
 					},
 				}
 
-				dep, err := buildpack.Buildpack{Buildpack: b}.RuntimeDependency(id, "1.0", stack)
+				dep, err := buildpack.NewBuildpack(b, logger.New(nil)).RuntimeDependency(id, "1.0", stack)
 				g.Expect(dep).To(Equal(expectedDep))
 				g.Expect(err).NotTo(HaveOccurred())
 			})
@@ -251,11 +251,11 @@ func TestBuildpack(t *testing.T) {
 					},
 				}
 
-				dep, err := buildpack.Buildpack{Buildpack: b}.RuntimeDependency(id, "", stack)
+				dep, err := buildpack.NewBuildpack(b, logger.New(nil)).RuntimeDependency(id, "", stack)
 				g.Expect(dep).To(Equal(expectedDep))
 				g.Expect(err).NotTo(HaveOccurred())
 
-				dep, err = buildpack.Buildpack{Buildpack: b}.RuntimeDependency(id, "default", stack)
+				dep, err = buildpack.NewBuildpack(b, logger.New(nil)).RuntimeDependency(id, "default", stack)
 				g.Expect(dep).To(Equal(expectedDep))
 				g.Expect(err).NotTo(HaveOccurred())
 			})
@@ -272,7 +272,7 @@ func TestBuildpack(t *testing.T) {
 					},
 				}
 
-				dep, err := buildpack.Buildpack{Buildpack: b}.RuntimeDependency(id, "1.0", stack)
+				dep, err := buildpack.NewBuildpack(b, logger.New(nil)).RuntimeDependency(id, "1.0", stack)
 				g.Expect(dep).To(Equal(buildpack.Dependency{}))
 				g.Expect(err).To(HaveOccurred())
 			})

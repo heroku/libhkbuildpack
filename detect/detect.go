@@ -31,8 +31,8 @@ type Detect struct {
 	// Buildpack represents the metadata associated with a buildpack.
 	Buildpack buildpack.Buildpack
 
-	// Logger is used to write debug and info to the console.
-	Logger logger.Logger
+	// Log is used to write debug and info to the console.
+	Logger *logger.Log
 
 	// Runner is used to run commands outside of the process.
 	Runner runner.Runner
@@ -53,7 +53,7 @@ func DefaultDetect() (Detect, error) {
 		return Detect{}, err
 	}
 
-	logger := logger.Logger{Logger: d.Logger}
+	logger := logger.New(&d.Logger)
 	buildpack := buildpack.NewBuildpack(d.Buildpack, logger)
 	services := services.Services{Services: d.Services}
 

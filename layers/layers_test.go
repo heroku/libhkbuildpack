@@ -23,12 +23,11 @@ import (
 	"testing"
 
 	layersBp "github.com/buildpack/libbuildpack/layers"
-	loggerBp "github.com/buildpack/libbuildpack/logger"
+	"github.com/fatih/color"
 	"github.com/heroku/libhkbuildpack/buildpack"
 	"github.com/heroku/libhkbuildpack/layers"
 	"github.com/heroku/libhkbuildpack/logger"
 	"github.com/heroku/libhkbuildpack/test"
-	"github.com/fatih/color"
 	. "github.com/onsi/gomega"
 	"github.com/sclevine/spec"
 	"github.com/sclevine/spec/report"
@@ -47,7 +46,7 @@ func TestLayers(t *testing.T) {
 
 		it.Before(func() {
 			root = test.ScratchDir(t, "layers")
-			logger := logger.Logger{Logger: loggerBp.NewLogger(nil, &info)}
+			logger := logger.NewFromWriters(nil, &info)
 			l = layers.NewLayers(layersBp.Layers{Root: root}, layersBp.Layers{}, buildpack.Buildpack{}, logger)
 		})
 
@@ -58,12 +57,7 @@ func TestLayers(t *testing.T) {
 					{"a-very-long-type", "test-command-2"},
 				},
 			})).To(Succeed())
-
-			g.Expect(info.String()).To(Equal(fmt.Sprintf(`%s Process types:
-       %s: test-command-2
-       %s:            test-command-1
-`, color.New(color.FgRed, color.Bold).Sprint("----->"), color.CyanString("a-very-long-type"),
-				color.CyanString("short"))))
+			g.Expect(info.String()).To(Equal("-----> Process types:\n      a-very-long-type: test-command-2\n      short:            test-command-1\n"))
 		})
 
 		it("logs number of slices", func() {

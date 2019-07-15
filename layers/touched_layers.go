@@ -23,7 +23,6 @@ import (
 
 	"github.com/heroku/libhkbuildpack/internal"
 	"github.com/heroku/libhkbuildpack/logger"
-	"github.com/fatih/color"
 )
 
 // TouchedLayers contains information about the layers that have been touched as part of this execution.
@@ -31,7 +30,7 @@ type TouchedLayers struct {
 	// Root is the root location of all layers to inspect for unused layers.
 	Root string
 
-	logger  logger.Logger
+	logger  *logger.Log
 	touched internal.Set
 }
 
@@ -58,7 +57,7 @@ func (t TouchedLayers) Cleanup() error {
 		return nil
 	}
 
-	t.logger.FirstLine("%s unused layers", color.YellowString("Removing"))
+	t.logger.FirstLine("%s unused layers", "Removing")
 	for r := range remove.Iterator() {
 		f := r.(string)
 		t.logger.SubsequentLine(strings.TrimSuffix(filepath.Base(f), ".toml"))
@@ -92,6 +91,6 @@ func (t TouchedLayers) candidates() (internal.Set, error) {
 }
 
 // NewTouchedLayers creates a new instance that monitors a given root.
-func NewTouchedLayers(root string, logger logger.Logger) TouchedLayers {
+func NewTouchedLayers(root string, logger *logger.Log) TouchedLayers {
 	return TouchedLayers{root, logger, internal.NewSet()}
 }

@@ -50,8 +50,8 @@ func TestDependency(t *testing.T) {
 
 		g := NewGomegaWithT(t)
 
-		when("NewDependency", func(){
-			it("constructs a dependency", func(){
+		when("NewDependency", func() {
+			it("constructs a dependency", func() {
 				expectedDep := buildpack.Dependency{
 					ID:      "test-id-1",
 					Name:    "test-name-1",
@@ -69,7 +69,7 @@ func TestDependency(t *testing.T) {
 			})
 		})
 
-		when("Validate", func(){
+		when("Validate", func() {
 			it("validates", func() {
 				g.Expect(buildpack.Dependency{
 					ID:      "test-id",
@@ -173,7 +173,6 @@ func TestDependency(t *testing.T) {
 				}.Validate()).NotTo(Succeed())
 			})
 		})
-
 
 	}, spec.Report(report.Terminal{}))
 }

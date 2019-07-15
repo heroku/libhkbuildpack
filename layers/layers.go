@@ -24,7 +24,6 @@ import (
 	"github.com/buildpack/libbuildpack/layers"
 	"github.com/heroku/libhkbuildpack/buildpack"
 	"github.com/heroku/libhkbuildpack/logger"
-	"github.com/fatih/color"
 )
 
 // Layers is an extension allows additional functionality to be added.
@@ -39,7 +38,7 @@ type Layers struct {
 
 	buildpack      buildpack.Buildpack
 	buildpackCache layers.Layers
-	logger         logger.Logger
+	logger         *logger.Log
 }
 
 // DependencyLayer returns a DependencyLayer unique to a dependency.
@@ -115,7 +114,7 @@ func (l Layers) WriteApplicationMetadata(metadata Metadata) error {
 		max := l.maximumTypeLength(p)
 		for _, p := range p {
 			format := fmt.Sprintf("%%s:%%-%ds %%s", max-len(p.Type))
-			l.logger.SubsequentLine(format, color.CyanString(p.Type), "", p.Command)
+			l.logger.SubsequentLine(format, p.Type, "", p.Command)
 		}
 	}
 
@@ -141,7 +140,7 @@ func (l Layers) maximumTypeLength(processes Processes) int {
 }
 
 // NewLayers creates a new instance of Layers.
-func NewLayers(layers layers.Layers, buildpackCache layers.Layers, buildpack buildpack.Buildpack, logger logger.Logger) Layers {
+func NewLayers(layers layers.Layers, buildpackCache layers.Layers, buildpack buildpack.Buildpack, logger *logger.Log) Layers {
 	return Layers{
 		Layers:               layers,
 		DependencyBuildPlans: make(buildplan.BuildPlan),
