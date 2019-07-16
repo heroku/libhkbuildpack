@@ -205,6 +205,7 @@ func NewBuildFactory(t *testing.T) *BuildFactory {
 	f.Build.Runner = runner
 	f.Build.Services = services.Services{Services: bpServices.Services{}}
 	f.Build.Stack = stack.Stack("test-stack")
+	f.Build.Logger = logger.New(nil)
 
 	return &f
 }
