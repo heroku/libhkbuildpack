@@ -13,10 +13,10 @@ import (
 const (
 	indent  = "      "
 	prefix  = "----->"
-	error   = "ERROR"
-	warning = "WARN"
-	debug   = "DEBUG"
-	info    = "INFO"
+	error   = "ERROR:"
+	warning = "WARN: "
+	debug   = "DEBUG:"
+	info    = "INFO: "
 )
 
 // Log supports logging related methods and state
@@ -58,8 +58,12 @@ func NewFromWriters(debug, info io.Writer) *Log {
 
 // Error prints an error message to the console if an info logger is provided.
 func (l Log) Error(format string, args ...interface{}) {
+	if format == "" {
+		l.printInfo("")
+		return
+	}
 	msg := fmt.Sprintf(format, args...)
-	l.printInfo("%s %s: %s", prefix, error, msg)
+	l.printInfo("%s %s %s", prefix, error, msg)
 }
 
 // FirstLine prints a line with a leading arrow.
@@ -76,18 +80,30 @@ func (l Log) SubsequentLine(format string, args ...interface{}) {
 
 // Warning prints a warning message
 func (l Log) Warning(format string, args ...interface{}) {
+	if format == "" {
+		l.printInfo("")
+		return
+	}
 	msg := fmt.Sprintf(format, args...)
-	l.printInfo("%s %s: %s", prefix, warning, msg)
+	l.printInfo("%s %s %s", prefix, warning, msg)
 }
 
 func (l Log) Debug(format string, args ...interface{}) {
+	if format == "" {
+		l.printDebug("")
+		return
+	}
 	msg := fmt.Sprintf(format, args...)
-	l.printDebug("%s %s: %s", prefix, debug, msg)
+	l.printDebug("%s %s %s", prefix, debug, msg)
 }
 
 func (l Log) Info(format string, args ...interface{}) {
+	if format == "" {
+		l.printInfo("")
+		return
+	}
 	msg := fmt.Sprintf(format, args...)
-	l.printInfo("%s %s: %s", prefix, info, msg)
+	l.printInfo("%s %s %s", prefix, info, msg)
 }
 
 func (l Log) PrettyIdentity(v Identifiable) string {
